@@ -13,5 +13,6 @@ router.register(r'leaderboard', LeaderboardViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', api_root, name='api-root'),
-    path('', include(router.urls)),
+    path('api/', api_root, name='api-root'),
+    path('api/', include(router.urls)),
 ]
