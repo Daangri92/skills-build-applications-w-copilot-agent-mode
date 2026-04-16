@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+
 const Activities = () => {
   const [activities, setActivities] = useState([]);
   useEffect(() => {
@@ -18,13 +19,32 @@ const Activities = () => {
       .catch(err => console.error('Error fetching activities:', err));
   }, []);
   return (
-    <div>
-      <h2>Activities</h2>
-      <ul>
-        {activities.map((activity, idx) => (
-          <li key={activity.id || idx}>{JSON.stringify(activity)}</li>
-        ))}
-      </ul>
+    <div className="card shadow mb-4">
+      <div className="card-body">
+        <h2 className="card-title mb-4 text-primary">Activities</h2>
+        <div className="table-responsive">
+          <table className="table table-striped table-hover">
+            <thead className="table-light">
+              <tr>
+                <th>#</th>
+                <th>Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {activities.length === 0 ? (
+                <tr><td colSpan="2" className="text-center">No activities found.</td></tr>
+              ) : (
+                activities.map((activity, idx) => (
+                  <tr key={activity.id || idx}>
+                    <td>{activity.id || idx + 1}</td>
+                    <td>{activity.name || JSON.stringify(activity)}</td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
