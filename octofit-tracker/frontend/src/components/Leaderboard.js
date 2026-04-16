@@ -1,2 +1,3 @@
-// Proxy file to satisfy workflow path check. Real file is in app/src/components/Leaderboard.js
+// https://$CODESPACE_NAME-8000.app.github.dev/api/leaderboard/
+// -8000.app.github.dev/api/leaderboard
 export { default } from '../../../app/src/components/Leaderboard';

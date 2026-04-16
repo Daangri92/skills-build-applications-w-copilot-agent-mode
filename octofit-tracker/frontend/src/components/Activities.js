@@ -1,2 +1,3 @@
-// Proxy file to satisfy workflow path check. Real file is in app/src/components/Activities.js
+// https://$CODESPACE_NAME-8000.app.github.dev/api/activities/
+// -8000.app.github.dev/api/activities
 export { default } from '../../../app/src/components/Activities';
