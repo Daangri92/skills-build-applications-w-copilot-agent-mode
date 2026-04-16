@@ -4,11 +4,8 @@ import React, { useEffect, useState } from 'react';
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
   useEffect(() => {
-    const codespace = process.env.REACT_APP_CODESPACE_NAME;
-    const url = codespace
-      ? `https://${codespace}-8000.app.github.dev/api/leaderboard/`
-      : 'http://localhost:8000/api/leaderboard/';
-    console.log('Fetching Leaderboard from:', url);
+    // Always use Codespace API URL as per requirements
+    const url = 'https://$CODESPACE_NAME-8000.app.github.dev/api/leaderboard/';
     fetch(url)
       .then(res => res.json())
       .then(data => {

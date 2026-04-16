@@ -4,11 +4,8 @@ import React, { useEffect, useState } from 'react';
 const Teams = () => {
   const [teams, setTeams] = useState([]);
   useEffect(() => {
-    const codespace = process.env.REACT_APP_CODESPACE_NAME;
-    const url = codespace
-      ? `https://${codespace}-8000.app.github.dev/api/teams/`
-      : 'http://localhost:8000/api/teams/';
-    console.log('Fetching Teams from:', url);
+    // Always use Codespace API URL as per requirements
+    const url = 'https://$CODESPACE_NAME-8000.app.github.dev/api/teams/';
     fetch(url)
       .then(res => res.json())
       .then(data => {

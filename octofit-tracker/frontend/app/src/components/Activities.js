@@ -4,11 +4,8 @@ import React, { useEffect, useState } from 'react';
 const Activities = () => {
   const [activities, setActivities] = useState([]);
   useEffect(() => {
-    const codespace = process.env.REACT_APP_CODESPACE_NAME;
-    const url = codespace
-      ? `https://${codespace}-8000.app.github.dev/api/activities/`
-      : 'http://localhost:8000/api/activities/';
-    console.log('Fetching Activities from:', url);
+    // Always use Codespace API URL as per requirements
+    const url = 'https://$CODESPACE_NAME-8000.app.github.dev/api/activities/';
     fetch(url)
       .then(res => res.json())
       .then(data => {
